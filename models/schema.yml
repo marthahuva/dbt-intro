@@ -1,0 +1,12 @@
+version: 2
+
+#después conectaremos las tablas
+sources: 
+  #nombre de la tabla que queremos conectar, que en este caso será el dataset de raw_data_circle, para raw_cc_sales y raw_cc_stock
+  - name: raw #new
+    schema: raw_data_circle1 #dataset
+    tables: 
+      - name: sales #new
+        identifier: raw_cc_sales #tabla
+      - name: stock 
+        identifier: raw_cc_stock
