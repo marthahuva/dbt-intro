@@ -1,12 +1,16 @@
 version: 2
 
-#después conectaremos las tablas
 sources: 
-  #nombre de la tabla que queremos conectar, que en este caso será el dataset de raw_data_circle, para raw_cc_sales y raw_cc_stock
-  - name: raw #new
-    schema: raw_data_circle1 #dataset
+  - name: raw
+    schema: raw_data_circle1
+    description: data from Circle (Frenc brand and eco-responsible and ethical sportswear)
     tables: 
-      - name: sales #new
-        identifier: raw_cc_sales #tabla
+      - name: sales
+        identifier: raw_cc_sales
+        description: details about Circle sales
       - name: stock 
         identifier: raw_cc_stock
+        description: details about Circle stock
+        tests:
+          - unique:
+              column_name: "(model || '_' || color || '_' || size)"
